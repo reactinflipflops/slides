@@ -264,7 +264,7 @@ export default class Presentation extends React.Component {
           code={code.spreadArray}
           ranges={[
             { loc: [0, 1] },
-            { loc: [1, 2], note: '["banana", "apple", "pear", "lemon"]' },
+            { loc: [1, 2], note: '["banana", "apple", "pear", "lemon"]' }
           ]}
         />
         <CodeSlide
@@ -274,7 +274,7 @@ export default class Presentation extends React.Component {
           ranges={[
             { loc: [0, 4] },
             { loc: [5, 9] },
-            { loc: [10, 15] },
+            { loc: [10, 15] }
           ]}
         />
         <CodeSlide
@@ -284,7 +284,7 @@ export default class Presentation extends React.Component {
           ranges={[
             { loc: [0, 4] },
             { loc: [5, 10] },
-            { loc: [11, 16] },
+            { loc: [11, 16] }
           ]}
         />
         <CodeSlide
@@ -294,7 +294,7 @@ export default class Presentation extends React.Component {
           ranges={[
             { loc: [0, 4] },
             { loc: [5, 10] },
-            { loc: [11, 16] },
+            { loc: [11, 16] }
           ]}
         />
         <Slide transition={["fade"]} bgColor="primary">
@@ -315,7 +315,7 @@ export default class Presentation extends React.Component {
           lang="js"
           code={code.moduleII}
           ranges={[
-            { loc: [0, 2], title: "app.js"  },
+            { loc: [0, 2], title: "app.js" },
             { loc: [2, 3] },
             { loc: [4, 6] }
           ]}
@@ -325,6 +325,7 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Heading size={6} textColor="secondary">Let's have a break …</Heading>
+          <Text>https://github.com/reactinflipflops/labs</Text>
         </Slide>
       </Deck>
     );
