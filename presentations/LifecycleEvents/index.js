@@ -13,8 +13,8 @@ import {
   List,
   // Quote,
   Slide,
-  // Image
-  Text
+  Image
+  // Text
 } from "spectacle";
 import CodeSlide from "spectacle-code-slide";
 
@@ -25,24 +25,20 @@ import preloader from "spectacle/lib/utils/preloader";
 import createTheme from "spectacle/lib/themes/default";
 
 // Import Components
-import HandleClick from "../../assets/InteractionAndStateManagement/HandleClick";
-import DefaultValue from "../../assets/InteractionAndStateManagement/DefaultValue";
-import ChangeWithoutUpdate from "../../assets/InteractionAndStateManagement/ChangeWithoutUpdate";
-import ChangeWithForceUpdate from "../../assets/InteractionAndStateManagement/ChangeWithForceUpdate";
-import ChangeSetStateInput from "../../assets/InteractionAndStateManagement/ChangeSetStateInput";
-import ChangeSetState from "../../assets/InteractionAndStateManagement/ChangeSetState";
-import ChangeParentState from "../../assets/InteractionAndStateManagement/ChangeParentState";
+import Button from "../../assets/LifecycleEvents/Button";
+import CounterButton from "../../assets/LifecycleEvents/CounterButton";
 
 // Require CSS
 require("normalize.css");
 require("spectacle/lib/themes/default/index.css");
 
 const images = {
-  // vdom: require("../../assets/ReactBasics/vdom.svg")
+  tree: require("../../assets/LifecycleEvents/tree.png")
 };
 
 const code = {
-  // HandleClick: require("!!raw-loader!../../assets/LifecycleEvents/HandleClick.js"),
+  Button: require("!!raw-loader!../../assets/LifecycleEvents/Button.js"),
+  CounterButton: require("!!raw-loader!../../assets/LifecycleEvents/CounterButton.js")
 };
 
 preloader(images);
@@ -57,7 +53,21 @@ const theme = createTheme({
   secondary: "Helvetica"
 });
 
+const colors = [
+  "blue",
+  "green",
+  "red"
+];
+
+const getRandomColor = () => colors[Math.floor(Math.random() * colors.length)];
+
 export default class Presentation extends React.Component {
+
+  state = {
+    color: "blue",
+    other: true
+  }
+
   render() {
     return (
       <Deck transition={["zoom", "slide"]} transitionDuration={500} theme={theme}>
@@ -154,6 +164,74 @@ prevProps: Object, prevState: Object
             source={`componentWillUnmount(): void`}
             textSize={24}
           />
+        </Slide>
+
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={3} textColor="secondary">
+            Optimization performance with shouldComponentUpdate
+          </Heading>
+        </Slide>
+
+        <CodeSlide
+          transition={["scale"]}
+          lang="jsx"
+          code={code.Button}
+          ranges={[
+            { loc: [0, 3] },
+            { loc: [13, 20] },
+            { loc: [4, 12] }
+          ]}
+        />
+
+        <Slide transition={["fade"]} bgColor="primary">
+          <CodePane
+            lang="jsx"
+            source={`<button onClick={() => this.setState({ color: getRandomColor() })}>
+  Change Color
+</button>
+<Button color={this.state.color} />`}
+            textSize={24}
+          />
+          <button onClick={() => this.setState({ color: getRandomColor() })}>
+            Change Color
+          </button>
+          <Button color={this.state.color} />
+        </Slide>
+
+        <CodeSlide
+          transition={["scale"]}
+          lang="jsx"
+          code={code.CounterButton}
+          ranges={[
+            { loc: [0, 8] },
+            { loc: [22, 33] },
+            { loc: [9, 21] }
+          ]}
+        />
+
+        <Slide transition={["fade"]} bgColor="primary">
+          <CodePane
+            lang="jsx"
+            source={`<button onClick={() => this.setState({ color: getRandomColor() })}>
+  Change Color
+</button>
+<button onClick={() => this.setState((state) => ({ other: !state.other }))}>
+  Change Other part of the state
+</button>
+<CounterButton color={this.state.color} />`}
+            textSize={24}
+          />
+          <button onClick={() => this.setState({ color: getRandomColor() })}>
+            Change Color
+          </button>
+          <button onClick={() => this.setState((state) => ({ other: !state.other }))}>
+            Change Other part of the state
+          </button>
+          <CounterButton color={this.state.color} />
+        </Slide>
+
+        <Slide transition={["fade"]} bgColor="primary">
+          <Image width={"100%"} src={images.tree} />
         </Slide>
       </Deck>
     );
