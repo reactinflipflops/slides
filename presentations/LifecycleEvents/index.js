@@ -27,6 +27,7 @@ import createTheme from "spectacle/lib/themes/default";
 // Import Components
 import Button from "../../assets/LifecycleEvents/Button";
 import CounterButton from "../../assets/LifecycleEvents/CounterButton";
+import D3Chart from "../../assets/LifecycleEvents/D3Chart";
 
 // Require CSS
 require("normalize.css");
@@ -38,7 +39,8 @@ const images = {
 
 const code = {
   Button: require("!!raw-loader!../../assets/LifecycleEvents/Button.js"),
-  CounterButton: require("!!raw-loader!../../assets/LifecycleEvents/CounterButton.js")
+  CounterButton: require("!!raw-loader!../../assets/LifecycleEvents/CounterButton.js"),
+  D3Chart: require("!!raw-loader!../../assets/LifecycleEvents/D3Chart.js")
 };
 
 preloader(images);
@@ -89,7 +91,13 @@ export default class Presentation extends React.Component {
               <ListItem>Add a D3 chart and remove it once the component is removed</ListItem>
             </Appear>
             <Appear>
+              <ListItem>Add a Google map and remove it once the component is removed</ListItem>
+            </Appear>
+            <Appear>
               <ListItem>Performance optimization, but by preventing React to re-evaluate the subtree</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>Keep the scoll position in a chat although new items are available</ListItem>
             </Appear>
           </List>
         </Slide>
@@ -97,7 +105,7 @@ export default class Presentation extends React.Component {
         <Slide transition={["fade"]} bgColor="primary">
           <CodePane
             lang="js"
-            source={`componentWillMount(): void`}
+            source={"componentWillMount(): void"}
             textSize={24}
           />
         </Slide>
@@ -105,7 +113,7 @@ export default class Presentation extends React.Component {
         <Slide transition={["fade"]} bgColor="primary">
           <CodePane
             lang="js"
-            source={`componentDidMount(): void`}
+            source={"componentDidMount(): void"}
             textSize={24}
           />
         </Slide>
@@ -113,7 +121,7 @@ export default class Presentation extends React.Component {
         <Slide transition={["fade"]} bgColor="primary">
           <CodePane
             lang="js"
-            source={`componentWillReceiveProps(nextProps: Object): void`}
+            source={"componentWillReceiveProps(nextProps: Object): void"}
             textSize={26}
           />
         </Slide>
@@ -161,10 +169,35 @@ prevProps: Object, prevState: Object
         <Slide transition={["fade"]} bgColor="primary">
           <CodePane
             lang="js"
-            source={`componentWillUnmount(): void`}
+            source={"componentWillUnmount(): void"}
             textSize={24}
           />
         </Slide>
+
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={3} textColor="secondary">
+            Using LifecycleEvents
+          </Heading>
+        </Slide>
+
+        <Slide transition={["fade"]} bgColor="primary">
+          <D3Chart />
+        </Slide>
+
+        <CodeSlide
+          transition={["scale"]}
+          lang="jsx"
+          code={code.D3Chart}
+          ranges={[
+            { loc: [0, 7] },
+            { loc: [8, 24] },
+            { loc: [25, 36] },
+            { loc: [37, 38] },
+            { loc: [71, 80] },
+            { loc: [39, 49] },
+            { loc: [50, 70] }
+          ]}
+        />
 
         <Slide transition={["fade"]} bgColor="primary">
           <Heading size={3} textColor="secondary">
