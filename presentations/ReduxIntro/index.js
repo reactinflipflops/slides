@@ -66,7 +66,7 @@ export default class Presentation extends React.Component {
           <Heading size={6} textColor="secondary">Action</Heading>
           <CodePane
             lang="jsx"
-            source={require("raw-loader!../../assets/ReduxIntro/action")}
+            source={require("!!raw-loader!../../assets/ReduxIntro/action")}
             margin="20px"
             textSize={"1.4rem"}
           />
@@ -75,7 +75,7 @@ export default class Presentation extends React.Component {
           <Heading size={6} textColor="secondary">Action Creator</Heading>
           <CodePane
             lang="jsx"
-            source={require("raw-loader!../../assets/ReduxIntro/actionCreator")}
+            source={require("!!raw-loader!../../assets/ReduxIntro/actionCreator")}
             margin="20px"
             textSize={"1.4rem"}
           />
@@ -84,7 +84,7 @@ export default class Presentation extends React.Component {
           <Heading size={6} textColor="secondary">Reducer</Heading>
           <CodePane
             lang="jsx"
-            source={require("raw-loader!../../assets/ReduxIntro/reducer")}
+            source={require("!!raw-loader!../../assets/ReduxIntro/reducer")}
             margin="20px"
             textSize={"1.4rem"}
           />
@@ -93,7 +93,7 @@ export default class Presentation extends React.Component {
           <Heading size={6} textColor="secondary">Store</Heading>
           <CodePane
             lang="jsx"
-            source={require("raw-loader!../../assets/ReduxIntro/store")}
+            source={require("!!raw-loader!../../assets/ReduxIntro/store")}
             margin="20px"
             textSize={"1.4rem"}
           />
@@ -102,7 +102,7 @@ export default class Presentation extends React.Component {
           <Heading size={6} textColor="secondary">Connect with React Part I</Heading>
           <CodePane
             lang="jsx"
-            source={require("raw-loader!../../assets/ReduxIntro/connectWithReactPartI")}
+            source={require("!!raw-loader!../../assets/ReduxIntro/connectWithReactPartI")}
             margin="20px"
             textSize={"1.4rem"}
           />
@@ -111,7 +111,7 @@ export default class Presentation extends React.Component {
           <Heading size={6} textColor="secondary">Connect with React Part II</Heading>
           <CodePane
             lang="jsx"
-            source={require("raw-loader!../../assets/ReduxIntro/connectWithReactPartII")}
+            source={require("!!raw-loader!../../assets/ReduxIntro/connectWithReactPartII")}
             margin="20px"
             textSize={"1.4rem"}
           />
